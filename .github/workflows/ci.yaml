@@ -1,4 +1,4 @@
-name: CI Pipeline
+name: CI/CD Pipeline
 
 on:
   push:
@@ -14,15 +14,25 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v3  # Використовує останню версію
 
       - name: Set up Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v3  # Використовує останню версію
         with:
-          node-version: '14'
+          node-version: '20'  # Оновлено до версії 20
+
+      - name: Display Node.js version
+        run: node -v  # Виводить версію Node.js
+
+      - name: Display npm version
+        run: npm -v  # Виводить версію npm
 
       - name: Install dependencies
         run: npm install
 
       - name: Run tests
         run: npm test
+
+      - name: Deploy
+        run: npm run deploy
+        if: success()
