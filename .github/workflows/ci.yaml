@@ -1,4 +1,4 @@
-name: CI/CD Pipeline
+name: CI Pipeline
 
 on:
   push:
@@ -33,6 +33,4 @@ jobs:
       - name: Run tests
         run: npm test
 
-      - name: Deploy
-        run: npm run deploy
-        if: success()
+     
