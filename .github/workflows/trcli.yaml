@@ -29,8 +29,6 @@ jobs:
       - name: Install trcli
         run: |
           pip install trcli
-          # Перевірка встановлення
-          trcli --verify
 
       - name: Install Node.js dependencies
         run: npm install
